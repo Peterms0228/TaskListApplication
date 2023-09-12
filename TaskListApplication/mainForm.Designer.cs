@@ -112,7 +112,7 @@
             this.Controls.Add(this.btnAdd);
             this.Name = "mainForm";
             this.Text = "Yokogawa task";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.mainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaskList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
