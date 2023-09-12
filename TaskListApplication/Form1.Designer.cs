@@ -1,6 +1,6 @@
 ﻿namespace TaskListApplication
 {
-    partial class Form1
+    partial class mainForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,34 +28,90 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.tbTitle = new System.Windows.Forms.TextBox();
+            this.tbDesc = new System.Windows.Forms.TextBox();
+            this.dgvTaskList = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTaskList)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // btnAdd
             // 
-            this.button1.Location = new System.Drawing.Point(134, 87);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 34);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "click";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAdd.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnAdd.Location = new System.Drawing.Point(795, 68);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(128, 117);
+            this.btnAdd.TabIndex = 0;
+            this.btnAdd.Text = "Add New";
+            this.btnAdd.UseVisualStyleBackColor = false;
             // 
-            // Form1
+            // lblTitle
+            // 
+            this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTitle.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTitle.Location = new System.Drawing.Point(12, 9);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(911, 45);
+            this.lblTitle.TabIndex = 1;
+            this.lblTitle.Text = "Task List Application";
+            // 
+            // tbTitle
+            // 
+            this.tbTitle.Location = new System.Drawing.Point(12, 68);
+            this.tbTitle.Name = "tbTitle";
+            this.tbTitle.PlaceholderText = "Task Title";
+            this.tbTitle.Size = new System.Drawing.Size(776, 31);
+            this.tbTitle.TabIndex = 2;
+            // 
+            // tbDesc
+            // 
+            this.tbDesc.Location = new System.Drawing.Point(12, 105);
+            this.tbDesc.Multiline = true;
+            this.tbDesc.Name = "tbDesc";
+            this.tbDesc.PlaceholderText = "Description";
+            this.tbDesc.Size = new System.Drawing.Size(776, 80);
+            this.tbDesc.TabIndex = 2;
+            // 
+            // dgvTaskList
+            // 
+            this.dgvTaskList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTaskList.Location = new System.Drawing.Point(13, 202);
+            this.dgvTaskList.Name = "dgvTaskList";
+            this.dgvTaskList.RowHeadersWidth = 62;
+            this.dgvTaskList.Size = new System.Drawing.Size(910, 436);
+            this.dgvTaskList.TabIndex = 3;
+            this.dgvTaskList.Text = "dataGridView1";
+            // 
+            // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(731, 533);
-            this.Controls.Add(this.button1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.ClientSize = new System.Drawing.Size(935, 650);
+            this.Controls.Add(this.dgvTaskList);
+            this.Controls.Add(this.tbDesc);
+            this.Controls.Add(this.tbTitle);
+            this.Controls.Add(this.lblTitle);
+            this.Controls.Add(this.btnAdd);
+            this.Name = "mainForm";
+            this.Text = "Yokogawa task";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTaskList)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.TextBox tbTitle;
+        private System.Windows.Forms.TextBox tbDesc;
+        private System.Windows.Forms.DataGridView dgvTaskList;
     }
 }
 
