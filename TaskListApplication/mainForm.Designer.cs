@@ -33,6 +33,7 @@
             this.tbTitle = new System.Windows.Forms.TextBox();
             this.tbDesc = new System.Windows.Forms.TextBox();
             this.dgvTaskList = new System.Windows.Forms.DataGridView();
+            this.btnEdit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaskList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,10 +42,11 @@
             this.btnAdd.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnAdd.Location = new System.Drawing.Point(795, 68);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(128, 117);
+            this.btnAdd.Size = new System.Drawing.Size(128, 55);
             this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "Add New";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // lblTitle
             // 
@@ -77,6 +79,7 @@
             // 
             // dgvTaskList
             // 
+            this.dgvTaskList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTaskList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTaskList.Location = new System.Drawing.Point(13, 202);
             this.dgvTaskList.Name = "dgvTaskList";
@@ -85,12 +88,23 @@
             this.dgvTaskList.TabIndex = 3;
             this.dgvTaskList.Text = "dataGridView1";
             // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(795, 129);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(128, 55);
+            this.btnEdit.TabIndex = 4;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(935, 650);
+            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.dgvTaskList);
             this.Controls.Add(this.tbDesc);
             this.Controls.Add(this.tbTitle);
@@ -112,6 +126,7 @@
         private System.Windows.Forms.TextBox tbTitle;
         private System.Windows.Forms.TextBox tbDesc;
         private System.Windows.Forms.DataGridView dgvTaskList;
+        private System.Windows.Forms.Button btnEdit;
     }
 }
 
