@@ -52,6 +52,8 @@ namespace TaskListApplication
             //reset edit status
             isEditing = false;
             btnEdit.Text = "Edit";
+            btnCancelEditing.Visible = false;
+
         }
 
         //checkstring
@@ -183,7 +185,8 @@ namespace TaskListApplication
 
                 //editing
                 isEditing = true;
-                btnEdit.Text = "Editing...";
+                btnEdit.Text = "Save";
+                btnCancelEditing.Visible = true;
             }
             else
             {
@@ -209,7 +212,10 @@ namespace TaskListApplication
                 int.TryParse(tbDuration.Text, out int numberOfDays);
                 estimateDueDate = DateTime.Now.AddDays(numberOfDays);
             }
-            catch(Exception ex) { }
+            catch(Exception ex) 
+            {
+                MessageBox.Show(ex.Message);
+            }
             dtpDueDate.Text = estimateDueDate.ToString();
         }
         
@@ -220,6 +226,30 @@ namespace TaskListApplication
             {
                 e.Handled = true;
             }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int selectedCell = dgvTaskList.CurrentCell.RowIndex;
+                var title = taskList.Rows[selectedCell]["Task Title"].ToString(); ;
+                DialogResult dialogResult = MessageBox.Show("Sure to delete \"" + title + "\" ?", "Alert", MessageBoxButtons.YesNoCancel);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    taskList.Rows[selectedCell].Delete(); 
+                    saveDataTableToCSV(taskList, filePath);
+                }
+            }
+            catch(Exception ex) 
+            {
+                MessageBox.Show(ex.Message);
+            }
+            clearField();
+        }
+        private void btnCancelEditing_Click(object sender, EventArgs e)
+        {
+            clearField();
         }
     }
 }

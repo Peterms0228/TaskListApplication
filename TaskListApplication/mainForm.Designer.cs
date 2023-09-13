@@ -42,13 +42,15 @@
             this.lblStatus = new System.Windows.Forms.Label();
             this.lblDuration = new System.Windows.Forms.Label();
             this.tbDuration = new System.Windows.Forms.TextBox();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnCancelEditing = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaskList)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAdd.Location = new System.Drawing.Point(1030, 68);
+            this.btnAdd.Location = new System.Drawing.Point(896, 72);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(128, 55);
             this.btnAdd.TabIndex = 0;
@@ -73,16 +75,16 @@
             this.tbTitle.Location = new System.Drawing.Point(12, 68);
             this.tbTitle.Name = "tbTitle";
             this.tbTitle.PlaceholderText = "Task Title";
-            this.tbTitle.Size = new System.Drawing.Size(598, 31);
+            this.tbTitle.Size = new System.Drawing.Size(471, 31);
             this.tbTitle.TabIndex = 2;
             // 
             // tbDesc
             // 
-            this.tbDesc.Location = new System.Drawing.Point(12, 105);
+            this.tbDesc.Location = new System.Drawing.Point(12, 108);
             this.tbDesc.Multiline = true;
             this.tbDesc.Name = "tbDesc";
             this.tbDesc.PlaceholderText = "Description";
-            this.tbDesc.Size = new System.Drawing.Size(740, 80);
+            this.tbDesc.Size = new System.Drawing.Size(614, 80);
             this.tbDesc.TabIndex = 2;
             // 
             // dgvTaskList
@@ -98,7 +100,7 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(1030, 129);
+            this.btnEdit.Location = new System.Drawing.Point(896, 133);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(128, 55);
             this.btnEdit.TabIndex = 4;
@@ -110,7 +112,7 @@
             // 
             this.dtpDueDate.CustomFormat = "dd-MM-yyyy";
             this.dtpDueDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDueDate.Location = new System.Drawing.Point(862, 68);
+            this.dtpDueDate.Location = new System.Drawing.Point(730, 76);
             this.dtpDueDate.Name = "dtpDueDate";
             this.dtpDueDate.Size = new System.Drawing.Size(149, 31);
             this.dtpDueDate.TabIndex = 5;
@@ -119,7 +121,7 @@
             // lblDueDate
             // 
             this.lblDueDate.AutoSize = true;
-            this.lblDueDate.Location = new System.Drawing.Point(766, 68);
+            this.lblDueDate.Location = new System.Drawing.Point(634, 76);
             this.lblDueDate.Name = "lblDueDate";
             this.lblDueDate.Size = new System.Drawing.Size(90, 25);
             this.lblDueDate.TabIndex = 6;
@@ -128,7 +130,7 @@
             // cbPriority
             // 
             this.cbPriority.FormattingEnabled = true;
-            this.cbPriority.Location = new System.Drawing.Point(862, 105);
+            this.cbPriority.Location = new System.Drawing.Point(729, 113);
             this.cbPriority.Name = "cbPriority";
             this.cbPriority.Size = new System.Drawing.Size(150, 33);
             this.cbPriority.TabIndex = 7;
@@ -136,7 +138,7 @@
             // lblPriority
             // 
             this.lblPriority.AutoSize = true;
-            this.lblPriority.Location = new System.Drawing.Point(784, 105);
+            this.lblPriority.Location = new System.Drawing.Point(651, 113);
             this.lblPriority.Name = "lblPriority";
             this.lblPriority.Size = new System.Drawing.Size(72, 25);
             this.lblPriority.TabIndex = 8;
@@ -145,7 +147,7 @@
             // cbStatus
             // 
             this.cbStatus.FormattingEnabled = true;
-            this.cbStatus.Location = new System.Drawing.Point(862, 145);
+            this.cbStatus.Location = new System.Drawing.Point(730, 152);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(149, 33);
             this.cbStatus.TabIndex = 9;
@@ -153,7 +155,7 @@
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(792, 144);
+            this.lblStatus.Location = new System.Drawing.Point(659, 148);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(64, 25);
             this.lblStatus.TabIndex = 10;
@@ -162,7 +164,7 @@
             // lblDuration
             // 
             this.lblDuration.AutoSize = true;
-            this.lblDuration.Location = new System.Drawing.Point(654, 71);
+            this.lblDuration.Location = new System.Drawing.Point(528, 74);
             this.lblDuration.Name = "lblDuration";
             this.lblDuration.Size = new System.Drawing.Size(55, 25);
             this.lblDuration.TabIndex = 11;
@@ -171,7 +173,7 @@
             // tbDuration
             // 
             this.tbDuration.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbDuration.Location = new System.Drawing.Point(715, 68);
+            this.tbDuration.Location = new System.Drawing.Point(589, 71);
             this.tbDuration.Name = "tbDuration";
             this.tbDuration.Size = new System.Drawing.Size(37, 31);
             this.tbDuration.TabIndex = 12;
@@ -179,12 +181,35 @@
             this.tbDuration.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbDuration.TextChanged += new System.EventHandler(this.tbDuration_TextChanged);
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(1030, 72);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(128, 55);
+            this.btnDelete.TabIndex = 13;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnCancelEditing
+            // 
+            this.btnCancelEditing.Location = new System.Drawing.Point(1030, 133);
+            this.btnCancelEditing.Name = "btnCancelEditing";
+            this.btnCancelEditing.Size = new System.Drawing.Size(128, 55);
+            this.btnCancelEditing.TabIndex = 14;
+            this.btnCancelEditing.Text = "Cancel";
+            this.btnCancelEditing.UseVisualStyleBackColor = true;
+            this.btnCancelEditing.Visible = false;
+            this.btnCancelEditing.Click += new System.EventHandler(this.btnCancelEditing_Click);
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1170, 650);
+            this.Controls.Add(this.btnCancelEditing);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.tbDuration);
             this.Controls.Add(this.lblDuration);
             this.Controls.Add(this.lblStatus);
@@ -224,6 +249,8 @@
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label lblDuration;
         private System.Windows.Forms.TextBox tbDuration;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnCancelEditing;
     }
 }
 
