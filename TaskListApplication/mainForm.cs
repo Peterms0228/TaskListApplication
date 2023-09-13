@@ -18,6 +18,7 @@ namespace TaskListApplication
 
         DataTable taskList = new DataTable();
         Boolean isEditing = false;
+        int editingCell = 0;
         string filePath = "taskList.csv";
         
         public mainForm()
@@ -40,11 +41,27 @@ namespace TaskListApplication
         }
         private void clearField()
         {
+            //reset field
             tbTitle.Text = "";
             tbDesc.Text = "";
+            tbDuration.Text = "0";
             cbPriority.SelectedItem = Priority.Medium;
             dtpDueDate.Value = DateTime.Now;
             cbStatus.SelectedItem = Status.Pending;
+
+            //reset edit status
+            isEditing = false;
+            btnEdit.Text = "Edit";
+        }
+
+        //checkstring
+        private Boolean isStringNull(string str)
+        {
+            if (str.Length <= 0 || str == null || str.Equals(""))
+            {
+                return true;
+            }
+            return false;
         }
 
         // Function to save DataTable to a CSV file
@@ -122,34 +139,46 @@ namespace TaskListApplication
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            Boolean validTask = true;
             //add data to data list
             var title = tbTitle.Text;
             var desc = tbDesc.Text;
             var prio = cbPriority.SelectedItem;
             var dueDate = dtpDueDate.Value.ToString("dd/MM/yyyy");
             var status = cbStatus.SelectedValue;
-            taskList.Rows.Add(title, desc, prio, dueDate, status);
 
-            clearField();
-            saveDataTableToCSV(taskList, filePath);
+            //check is title null
+            if (isStringNull(title))
+            {
+                validTask = false;
+                MessageBox.Show("Empty Task Title");
+            }
+
+            if (validTask)
+            {            
+                taskList.Rows.Add(title, desc, prio, dueDate, status);
+                clearField();
+                saveDataTableToCSV(taskList, filePath);               
+            }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
             if (!isEditing)
             {
-                //grab data from list to text box
-                tbTitle.Text = taskList.Rows[dgvTaskList.CurrentCell.RowIndex]["Task Title"].ToString();
-                tbDesc.Text = taskList.Rows[dgvTaskList.CurrentCell.RowIndex]["Description"].ToString();
+                editingCell = dgvTaskList.CurrentCell.RowIndex;
 
-                var strPriority = taskList.Rows[dgvTaskList.CurrentCell.RowIndex]["Priority"].ToString();
+                //grab data from list to text box
+                tbTitle.Text = taskList.Rows[editingCell]["Task Title"].ToString();
+                tbDesc.Text = taskList.Rows[editingCell]["Description"].ToString();
+
+                var strPriority = taskList.Rows[editingCell]["Priority"].ToString();
                 cbPriority.SelectedItem = (Priority)Enum.Parse(typeof(Priority), strPriority);
 
-                var strDueDate = taskList.Rows[dgvTaskList.CurrentCell.RowIndex]["Due Date"].ToString();
+                var strDueDate = taskList.Rows[editingCell]["Due Date"].ToString();
                 dtpDueDate.Value = DateTime.Parse(strDueDate);
 
-                cbStatus.Enabled = true;
-                var strStatus = taskList.Rows[dgvTaskList.CurrentCell.RowIndex]["Status"].ToString();
+                var strStatus = taskList.Rows[editingCell]["Status"].ToString();
                 cbStatus.SelectedItem = (Status)Enum.Parse(typeof(Status), strStatus);
 
                 //editing
@@ -159,18 +188,37 @@ namespace TaskListApplication
             else
             {
                 //set data to list
-                taskList.Rows[dgvTaskList.CurrentCell.RowIndex]["Task Title"] = tbTitle.Text;
-                taskList.Rows[dgvTaskList.CurrentCell.RowIndex]["Description"] = tbDesc.Text;
-                taskList.Rows[dgvTaskList.CurrentCell.RowIndex]["Priority"] = cbPriority.Text;
-                taskList.Rows[dgvTaskList.CurrentCell.RowIndex]["Due Date"] = dtpDueDate.Value.ToString("dd/MM/yyyy");
-                taskList.Rows[dgvTaskList.CurrentCell.RowIndex]["Status"] = cbStatus.Text;
+                taskList.Rows[editingCell]["Task Title"] = tbTitle.Text;
+                taskList.Rows[editingCell]["Description"] = tbDesc.Text;
+                taskList.Rows[editingCell]["Priority"] = cbPriority.Text;
+                taskList.Rows[editingCell]["Due Date"] = dtpDueDate.Value.ToString("dd/MM/yyyy");
+                taskList.Rows[editingCell]["Status"] = cbStatus.Text;
 
                 //end of editing
-                cbStatus.Enabled = false;
-                isEditing = false;
-                btnEdit.Text = "Edit";
                 clearField();
                 saveDataTableToCSV(taskList, filePath);
+            }
+        }
+
+        private void tbDuration_TextChanged(object sender, EventArgs e)
+        {
+            DateTime estimateDueDate = dtpDueDate.Value;
+            try
+            {
+                //calc due date = now + duration
+                int.TryParse(tbDuration.Text, out int numberOfDays);
+                estimateDueDate = DateTime.Now.AddDays(numberOfDays);
+            }
+            catch(Exception ex) { }
+            dtpDueDate.Text = estimateDueDate.ToString();
+        }
+        
+        private void tbDuration_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //check textbox duration only allow integer
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

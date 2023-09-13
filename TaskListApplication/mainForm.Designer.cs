@@ -40,6 +40,8 @@
             this.lblPriority = new System.Windows.Forms.Label();
             this.cbStatus = new System.Windows.Forms.ComboBox();
             this.lblStatus = new System.Windows.Forms.Label();
+            this.lblDuration = new System.Windows.Forms.Label();
+            this.tbDuration = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaskList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -112,7 +114,7 @@
             this.dtpDueDate.Name = "dtpDueDate";
             this.dtpDueDate.Size = new System.Drawing.Size(149, 31);
             this.dtpDueDate.TabIndex = 5;
-            this.dtpDueDate.Value = new System.DateTime(2023, 9, 13, 10, 32, 7, 0);
+            this.dtpDueDate.Value = new System.DateTime(2023, 9, 13, 15, 49, 11, 365);
             // 
             // lblDueDate
             // 
@@ -142,7 +144,6 @@
             // 
             // cbStatus
             // 
-            this.cbStatus.Enabled = false;
             this.cbStatus.FormattingEnabled = true;
             this.cbStatus.Location = new System.Drawing.Point(862, 145);
             this.cbStatus.Name = "cbStatus";
@@ -158,12 +159,34 @@
             this.lblStatus.TabIndex = 10;
             this.lblStatus.Text = "Status:";
             // 
+            // lblDuration
+            // 
+            this.lblDuration.AutoSize = true;
+            this.lblDuration.Location = new System.Drawing.Point(654, 71);
+            this.lblDuration.Name = "lblDuration";
+            this.lblDuration.Size = new System.Drawing.Size(55, 25);
+            this.lblDuration.TabIndex = 11;
+            this.lblDuration.Text = "Days:";
+            // 
+            // tbDuration
+            // 
+            this.tbDuration.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbDuration.Location = new System.Drawing.Point(715, 68);
+            this.tbDuration.Name = "tbDuration";
+            this.tbDuration.Size = new System.Drawing.Size(37, 31);
+            this.tbDuration.TabIndex = 12;
+            this.tbDuration.Text = "0";
+            this.tbDuration.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbDuration.TextChanged += new System.EventHandler(this.tbDuration_TextChanged);
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1170, 650);
+            this.Controls.Add(this.tbDuration);
+            this.Controls.Add(this.lblDuration);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.cbStatus);
             this.Controls.Add(this.lblPriority);
@@ -199,6 +222,8 @@
         private System.Windows.Forms.Label lblPriority;
         private System.Windows.Forms.ComboBox cbStatus;
         private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Label lblDuration;
+        private System.Windows.Forms.TextBox tbDuration;
     }
 }
 
