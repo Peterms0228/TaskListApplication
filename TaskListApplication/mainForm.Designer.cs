@@ -200,6 +200,7 @@
             this.tbDuration.Text = "0";
             this.tbDuration.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbDuration.TextChanged += new System.EventHandler(this.tbDuration_TextChanged);
+            this.tbDuration.KeyPress += this.tbDuration_KeyPress;
             // 
             // btnDelete
             // 
