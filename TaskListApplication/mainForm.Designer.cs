@@ -49,6 +49,7 @@
             // 
             // btnAdd
             // 
+            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAdd.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnAdd.Location = new System.Drawing.Point(896, 72);
             this.btnAdd.Name = "btnAdd";
@@ -72,6 +73,8 @@
             // 
             // tbTitle
             // 
+            this.tbTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbTitle.Location = new System.Drawing.Point(12, 68);
             this.tbTitle.Name = "tbTitle";
             this.tbTitle.PlaceholderText = "Task Title";
@@ -80,6 +83,8 @@
             // 
             // tbDesc
             // 
+            this.tbDesc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbDesc.Location = new System.Drawing.Point(12, 108);
             this.tbDesc.Multiline = true;
             this.tbDesc.Name = "tbDesc";
@@ -89,17 +94,24 @@
             // 
             // dgvTaskList
             // 
+            this.dgvTaskList.AllowUserToAddRows = false;
+            this.dgvTaskList.AllowUserToDeleteRows = false;
+            this.dgvTaskList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvTaskList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTaskList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTaskList.Location = new System.Drawing.Point(13, 202);
             this.dgvTaskList.Name = "dgvTaskList";
             this.dgvTaskList.RowHeadersWidth = 62;
+            this.dgvTaskList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTaskList.Size = new System.Drawing.Size(1145, 436);
             this.dgvTaskList.TabIndex = 3;
             this.dgvTaskList.Text = "dataGridView1";
             // 
             // btnEdit
             // 
+            this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEdit.Location = new System.Drawing.Point(896, 133);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(128, 55);
@@ -110,6 +122,7 @@
             // 
             // dtpDueDate
             // 
+            this.dtpDueDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpDueDate.CustomFormat = "dd-MM-yyyy";
             this.dtpDueDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDueDate.Location = new System.Drawing.Point(730, 76);
@@ -120,6 +133,7 @@
             // 
             // lblDueDate
             // 
+            this.lblDueDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDueDate.AutoSize = true;
             this.lblDueDate.Location = new System.Drawing.Point(634, 76);
             this.lblDueDate.Name = "lblDueDate";
@@ -129,6 +143,7 @@
             // 
             // cbPriority
             // 
+            this.cbPriority.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbPriority.FormattingEnabled = true;
             this.cbPriority.Location = new System.Drawing.Point(729, 113);
             this.cbPriority.Name = "cbPriority";
@@ -137,6 +152,7 @@
             // 
             // lblPriority
             // 
+            this.lblPriority.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPriority.AutoSize = true;
             this.lblPriority.Location = new System.Drawing.Point(651, 113);
             this.lblPriority.Name = "lblPriority";
@@ -146,6 +162,7 @@
             // 
             // cbStatus
             // 
+            this.cbStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbStatus.FormattingEnabled = true;
             this.cbStatus.Location = new System.Drawing.Point(730, 152);
             this.cbStatus.Name = "cbStatus";
@@ -154,6 +171,7 @@
             // 
             // lblStatus
             // 
+            this.lblStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblStatus.AutoSize = true;
             this.lblStatus.Location = new System.Drawing.Point(659, 148);
             this.lblStatus.Name = "lblStatus";
@@ -163,6 +181,7 @@
             // 
             // lblDuration
             // 
+            this.lblDuration.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDuration.AutoSize = true;
             this.lblDuration.Location = new System.Drawing.Point(528, 74);
             this.lblDuration.Name = "lblDuration";
@@ -172,6 +191,7 @@
             // 
             // tbDuration
             // 
+            this.tbDuration.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tbDuration.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbDuration.Location = new System.Drawing.Point(589, 71);
             this.tbDuration.Name = "tbDuration";
@@ -183,6 +203,7 @@
             // 
             // btnDelete
             // 
+            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDelete.Location = new System.Drawing.Point(1030, 72);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(128, 55);
@@ -193,6 +214,7 @@
             // 
             // btnCancelEditing
             // 
+            this.btnCancelEditing.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelEditing.Location = new System.Drawing.Point(1030, 133);
             this.btnCancelEditing.Name = "btnCancelEditing";
             this.btnCancelEditing.Size = new System.Drawing.Size(128, 55);

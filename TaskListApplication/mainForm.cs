@@ -17,9 +17,13 @@ namespace TaskListApplication
         enum Priority { High, Medium, Low };
 
         DataTable taskList = new DataTable();
+
+        //file path of the data (.txt or .csv)
+        string filePath = "TaskListData.csv";
+
+        //edit variable
         Boolean isEditing = false;
         int editingCell = 0;
-        string filePath = "taskList.csv";
         
         public mainForm()
         {
@@ -29,7 +33,7 @@ namespace TaskListApplication
                 //load data
                 loadDataTableFromCSV(filePath);
             }
-            catch (Exception e) 
+            catch (Exception ex) 
             {
                 //trigger if first time create table
                 taskList.Columns.Add("Task Title");
@@ -56,7 +60,7 @@ namespace TaskListApplication
 
         }
 
-        //checkstring
+        //check is the string null
         private Boolean isStringNull(string str)
         {
             if (str.Length <= 0 || str == null || str.Equals(""))
@@ -66,12 +70,12 @@ namespace TaskListApplication
             return false;
         }
 
-        // Function to save DataTable to a CSV file
+        //save data to CSV file
         private void saveDataTableToCSV(DataTable dataTable, string filePath)
         {
             using (StreamWriter writer = new StreamWriter(filePath))
             {
-                // Write the column names as headers
+                //write the column names as headers
                 foreach (DataColumn column in dataTable.Columns)
                 {
                     writer.Write(column.ColumnName);
@@ -82,7 +86,7 @@ namespace TaskListApplication
                 }
                 writer.WriteLine(); 
 
-                // Write the data rows
+                //write the data rows
                 foreach (DataRow row in dataTable.Rows)
                 {
                     for (int i = 0; i < dataTable.Columns.Count; i++)
@@ -98,6 +102,7 @@ namespace TaskListApplication
             }
         }
 
+        //load data from CSV file
         private DataTable loadDataTableFromCSV(string filePath)
         {
             using (StreamReader reader = new StreamReader(filePath))
@@ -141,24 +146,22 @@ namespace TaskListApplication
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            Boolean validTask = true;
-            //add data to data list
-            var title = tbTitle.Text;
-            var desc = tbDesc.Text;
-            var prio = cbPriority.SelectedItem;
-            var dueDate = dtpDueDate.Value.ToString("dd/MM/yyyy");
-            var status = cbStatus.SelectedValue;
-
             //check is title null
-            if (isStringNull(title))
+            if (isStringNull(tbTitle.Text))
             {
-                validTask = false;
                 MessageBox.Show("Empty Task Title");
             }
+            else
+            {
+                //save data to a data row
+                DataRow newDataRow = taskList.NewRow();
+                newDataRow["Task Title"] = tbTitle.Text;
+                newDataRow["Description"] = tbDesc.Text;
+                newDataRow["Priority"] = cbPriority.SelectedItem;
+                newDataRow["Due Date"] = dtpDueDate.Value.ToString("dd/MM/yyyy");
+                newDataRow["Status"] = cbStatus.SelectedValue;
 
-            if (validTask)
-            {            
-                taskList.Rows.Add(title, desc, prio, dueDate, status);
+                taskList.Rows.InsertAt(newDataRow, 0);
                 clearField();
                 saveDataTableToCSV(taskList, filePath);               
             }
@@ -173,13 +176,10 @@ namespace TaskListApplication
                 //grab data from list to text box
                 tbTitle.Text = taskList.Rows[editingCell]["Task Title"].ToString();
                 tbDesc.Text = taskList.Rows[editingCell]["Description"].ToString();
-
                 var strPriority = taskList.Rows[editingCell]["Priority"].ToString();
                 cbPriority.SelectedItem = (Priority)Enum.Parse(typeof(Priority), strPriority);
-
                 var strDueDate = taskList.Rows[editingCell]["Due Date"].ToString();
                 dtpDueDate.Value = DateTime.Parse(strDueDate);
-
                 var strStatus = taskList.Rows[editingCell]["Status"].ToString();
                 cbStatus.SelectedItem = (Status)Enum.Parse(typeof(Status), strStatus);
 
