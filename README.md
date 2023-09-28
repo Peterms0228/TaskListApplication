@@ -1,5 +1,5 @@
 # Project's Title (Simple Task List Application)
-Code Execise given by <a href="https://www.yokogawa.com/sg/about/careers/" target="_blank">Yokogawa Engineering Asia Pte Ltd</a><br/>
+Code Execise with C#
 .exe file can be found from "Published file"<br/>
 Data CSV File will be generated next to .exe file
 
